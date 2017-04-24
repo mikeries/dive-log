@@ -10,7 +10,6 @@ An app to log dives.  Each user is a diver that records data for the dives that 
   * Time and Date
   * Dive duration
   * Maximum depth
-  * Average depth
   * Starting tank pressure
   * Ending tank pressure
   * ballast
@@ -63,7 +62,7 @@ Show form allowing users to create/edit/delete a location.  Login is required, b
 * A location can only be deleted or modified if it is not referenced by a Dive.
 
 ## Implementation
-Diver is the root class.  A Diver has many Dives.
+Diver is the root class.  A Diver has many Dives and many Locations through Dive
 A Dive belogs to a diver, and belongs to a location.
 A Location has many Dives, and many Divers through Dive.
 (Maybe just use User instead of Diver?)

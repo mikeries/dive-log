@@ -61,3 +61,10 @@ Show a list of all dive locations, with links to allow editing/deleting.  Add a 
 ### New/Edit Location
 Show form allowing users to create/edit/delete a location.  Login is required, but any user can modify locations.
 * A location can only be deleted or modified if it is not referenced by a Dive.
+
+## Implementation
+Diver is the root class.  A Diver has many Dives.
+A Dive belogs to a diver, and belongs to a location.
+A Location has many Dives, and many Divers through Dive.
+(Maybe just use User instead of Diver?)
+

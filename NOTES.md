@@ -67,3 +67,27 @@ A Dive belogs to a diver, and belongs to a location.
 A Location has many Dives, and many Divers through Dive.
 (Maybe just use User instead of Diver?)
 
+## Controllers
+### UserController
+get '/' Welcome page
+get '/login' login page
+get '/signup' signup page
+
+### DiveController
+get '/dives'
+get '/dives/:id'
+get '/dives/new'
+post '/dives'
+get '/dives/:id/edit
+post '/dives/:id'
+post '/dives/:id/delete'
+
+### LocationController
+get '/locations'
+get '/locations/new'
+post '/locations'
+get '/locations/:slug'
+post '/locations/:slug'
+get '/locations/:slug/edit'
+post '/locations/:slug/delete'
+

@@ -7,5 +7,8 @@ ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'dive', 'dives'
+end
 
 require_all 'app'

@@ -14,4 +14,17 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  helpers do
+    def logged_in?
+      !!Diver.find_by_id(session[:user_id])
+    end
+
+    def current_user
+      @user = Diver.find_by_id(session[:user_id])
+      if @user.is_a?(User)
+          @user    
+      end
+    end
+  end
+
 end

@@ -1,7 +1,9 @@
 <h1>Your dives</h1>
 <hr>
 <% @diver.dives.each do |dive| %>
-  <p><%= "#{dive.location.name}"%> <%= "#{dive.datetime}"%></p>
+  <p><a href='/dives/<%= "#{dive.id}" %>'>
+    <%= "#{dive.location.name}"%> <%= "#{dive.datetime}"%>
+  </a></p>
 <% end %>
 
 <form action='/dives/new' method='get'>

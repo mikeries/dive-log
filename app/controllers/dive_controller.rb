@@ -18,7 +18,6 @@ class DiveController < ApplicationController
       current_user.save
       redirect to '/dives'
     else
-      binding.pry
       add_validation_to_session(dive.errors.messages)
 
       # IDEA - store params[:dive] in the session and use it to repopulate fields

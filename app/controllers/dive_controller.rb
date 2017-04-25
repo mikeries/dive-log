@@ -15,7 +15,8 @@ class DiveController < ApplicationController
     redirect to '/' if !logged_in?
     dive = current_user.dives.build(params[:dive])
     if dive.valid?
-      current_user.save
+      dive.location.id = params[:dive][:location]
+      current_user.save(validate: false)
       redirect to '/dives'
     else
       add_validation_to_session(dive.errors.messages)

@@ -7,7 +7,7 @@
   </div>
   <div>
     <label for='location'>Location*</label>
-    <select>
+    <select name=dive[location_id]>
       <% Location.all.each do |location| %>
         <option value='<%= location.id%>'><%= location.name%></option>
       <% end %>

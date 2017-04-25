@@ -8,10 +8,10 @@ class UserController < ApplicationController
     diver = Diver.find_by(:email => params[:email])
 
     if !diver
-      flash[:message] = "Unknown diver. Please enter your email and password again, or sign up."
+      add_validation_to_session ({diver: "unknown. Please enter your email and password again, or sign up"})
       redirect to '/login'
     elsif !diver.authenticate(params[:password])
-      flash[:message] = "Incorrect password. Please try again."
+      add_validation_to_session ({password: "incorrect. Please try again"})
       redirect to "/login"
     else
       session["diver_id"] = diver.id
@@ -31,7 +31,7 @@ class UserController < ApplicationController
     end
 
     if (Diver.find_by(email: diver.email))
-      add_validation_to_session({email: ["has already been created.  Please log in."]})
+      add_validation_to_session({email: "has already been created.  Please log in"})
       redirect to '/signup'
     end
     

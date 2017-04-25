@@ -1,0 +1,12 @@
+<h1>All Current Locations</h1>
+<hr>
+<% Location.all.each do |location| %>
+  <p><a href='/location/<%= "#{location.slug}" %>'>
+    <h3><%= "#{location.name}" %></h3>
+    <p><%= "#{location.city}, #{location.country}"%></p>
+  </a></p>
+<% end %>
+
+<form action='/locations/new' method='get'>
+  <input type='submit' name='submit' value='New Dive'>
+</form>

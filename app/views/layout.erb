@@ -17,6 +17,15 @@
   </div>
   <hr>
 
+
+  <% if errors %>
+    <div class='errors'>
+      <%= errors.join(" ") %>
+      <% clear_errors %>
+    </div>
+  <% end %>
+
+
     <%= yield %>
   </body>
 </html>

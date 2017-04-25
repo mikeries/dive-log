@@ -25,6 +25,20 @@ class ApplicationController < Sinatra::Base
           @user    
       end
     end
+
+    def errors
+      session[:error_messages]
+    end
+
+    def add_error(message)
+      session[:error_messages] |= []
+      session[:error_messages] << [message]
+    end
+
+    def clear_errors
+      session[:error_messages] = []
+    end
+        
   end
 
 end

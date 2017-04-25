@@ -9,10 +9,10 @@
     Dive Logger
       <a href='/'>Home</a>
       <% if logged_in? %>
+        <p>Welcome  <%= current_user.name %></p>
         <a href='/logout'>Logout</a>
       <% else %>
-        <a href='login'>Login</a>
-        <a href='/signup'>Sign Up</a>
+        <span>Please <a href='login'>Login</a> or <a href='/signup'>Sign Up</a></span>
       <% end %>
   </div>
   <hr>

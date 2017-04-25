@@ -3,4 +3,5 @@ class Location < ActiveRecord::Base
   extend Slugifiable::ClassMethods
   has_many :dives
   has_many :locations, through: :dives
+  validates_presence_of :name, :city, :country
 end

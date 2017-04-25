@@ -18,7 +18,8 @@ class DiveController < ApplicationController
       current_user.save
       redirect to '/dives'
     else
-      add_validation_to_session(dive.errors)
+      binding.pry
+      add_validation_to_session(dive.errors.messages)
 
       # IDEA - store params[:dive] in the session and use it to repopulate fields
       # so that the user doesn't have to type everything in again?
@@ -26,21 +27,21 @@ class DiveController < ApplicationController
     end
   end
 
-  get '/dives/:slug' do
+  get '/dives/:id' do
     redirect to '/' if !logged_in?
     erb :'dives/show'
   end
   
-  post '/dives/:slug' do
+  post '/dives/:id' do
     redirect to '/' if !logged_in?  
   end
 
-  get '/dives/:slug/edit' do
+  get '/dives/:id/edit' do
     redirect to '/' if !logged_in?
     erb :'dives/edit'
   end
 
-  post '/dives/:slug/delete' do
+  post '/dives/:id/delete' do
     redirect to '/' if !logged_in? 
   end
 

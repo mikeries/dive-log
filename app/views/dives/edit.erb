@@ -1,15 +1,15 @@
-<h1>Edit your dive to <%= @dive.location.name %> on <%= @dive.location.datetime %> </h1>
+<h1>Edit your dive to <%= @dive.location.name %> on <%= @dive.datetime %> </h1>
 
-<form action="/dives/<%="#{dive.id}"%>" method="post" >
+<form action="/dives/<%="#{@dive.id}"%>" method="post" >
   <div>
     <label for='name'>Date*</label>
-    <input type='text' id='name' name=[dive[datetime]]>
+    <input type='text' id='name' name=[dive[datetime]] value=<%= @dive.datetime %>>
   </div>
   <div>
     <label for='location'>Location*</label>
     <select>
       <% Location.all.each do |location| %>
-        <option value='<%= location.id%>'><%= location.name%></option>
+        <option value='<%= location.id%>' <%= 'selected' if location.id=@dive.location.id %>><%= location.name%></option>
       <% end %>
     </select>
   </div>

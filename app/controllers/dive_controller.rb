@@ -42,6 +42,8 @@ class DiveController < ApplicationController
 
   get '/dives/:id/edit' do
     redirect to '/' if !logged_in?
+    @dive = current_user.dives.find_by(id: params[:id])
+    redirect to '/' unless @dive
     erb :'dives/edit'
   end
 

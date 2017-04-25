@@ -36,8 +36,17 @@ class DiveController < ApplicationController
     erb :'dives/show'
   end
   
-  post '/dives/:id' do
-    redirect to '/' if !logged_in?  
+  patch '/dives/:id' do
+    redirect to '/' if !logged_in?
+    dive = current_user.dives.find_by(id: params[:id])
+    redirect to '/' unless dive
+
+    if dive.update(params[:dive])
+      redirect to "/dives/#{dive.id}"
+    else
+      add_validation_to_session(dive.errors.messages)
+      redirect to "/dives/#{dive.id}/edit"
+    end
   end
 
   get '/dives/:id/edit' do

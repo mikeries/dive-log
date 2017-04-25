@@ -15,29 +15,30 @@
   </div>
   <div>
     <label for='duration'>Duration* (minutes)</label>
-    <input type='text' id='duration' name=[dive[duration]]>
+    <input type='text' id='duration' name=[dive[duration]] value=<%= @dive.duration %>>
   </div>
   <div>
     <label for='max_depth'>Maximum depth* (feet)</label>
-    <input type='text' id='max_depth' name=[dive[max_depth]]>
+    <input type='text' id='max_depth' name=[dive[max_depth]] value=<%= @dive.max_depth %>>
   </div>
   <div>
     <label for='starting_pressure'>Starting pressure* (psi)</label>
-    <input type='text' id='starting_pressure' name=[dive[starting_pressure]]>
+    <input type='text' id='starting_pressure' name=[dive[starting_pressure]] value=<%= @dive.starting_pressure %> >
   </div>
   <div>
     <label for='final_pressure'>Final pressure* (psi)</label>
-    <input type='text' id='final_pressure' name=[dive[final_pressure]]>
+    <input type='text' id='final_pressure' name=[dive[final_pressure]] value=<%= @dive.final_pressure %>>
   </div>
   <div>
     <label for='ballast'>Ballast (lbs)</label>
-    <input type='text' id='ballast' name=[dive[ballast]]>
+    <input type='text' id='ballast' name=[dive[ballast]] value=<%= @dive.ballast %>>
   </div>
   <div>
     <br><label for='comments'>How was it? </label><br>
 	  <textarea type="text" name="dive[comments]" id="comments" rows="20" 
-              cols="100"></textarea>
+              cols="100"><%= @dive.comments %></textarea>
   </div>
 
+  <input id="hidden" type="hidden" name="_method" value="patch"/>
 	<input type='submit' name='submit' value='Add Dive' id='submit'/>
 </form>	

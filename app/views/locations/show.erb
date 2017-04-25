@@ -1,0 +1,24 @@
+<h1><%= @location.name %> </h1>
+
+<p>City: <%= @location.city %> </p>
+<p>Country: <%= @location.country %> </p>
+<p>Category: <%= @location.type %></p>
+
+<div>
+	<h2>Description:</h2>
+	<p><%= @location.description %></p>
+</div>
+<br>
+
+<% if !Dive.all.exists?(@location.id) %>
+<form action="/locations/<%= @dive.id %>/edit" method=get>
+  <input type="submit" value="Edit Location"/>
+</form>
+<br>
+<form action="/locations/<%= @dive.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="Delete Location" />
+</form>
+<% else %>
+  <p>This location cannot be modified because it is referenced by an existing dive.</p>
+<% end %>

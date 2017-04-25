@@ -51,13 +51,15 @@ class DiveController < ApplicationController
 
   get '/dives/:id/edit' do
     redirect to '/' if !logged_in?
-    @dive = current_user.dives.find_by(id: params[:id])
-    redirect to '/' unless @dive
+    redirect to '/' unless @dive = current_user.dives.find_by(id: params[:id])
     erb :'dives/edit'
   end
 
-  post '/dives/:id/delete' do
-    redirect to '/' if !logged_in? 
+  delete '/dives/:id/delete' do
+    redirect to '/' if !logged_in?
+    redirect to '/' unless dive = current_user.dives.find_by(id: params[:id])
+    dive.delete
+    redirect to '/dives'
   end
 
 end

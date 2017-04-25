@@ -19,7 +19,7 @@
 
     <% if flash.has?(:message) %>
       <div class='errors'>
-        <%= flash[:message]%>
+        <%= validation_messages %>
       </div>
     <% end %>
 

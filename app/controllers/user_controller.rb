@@ -26,12 +26,12 @@ class UserController < ApplicationController
   post '/signup' do
     diver = Diver.new(params[:diver])
     if diver.invalid?
-      # add_validation_to_session
+      add_validation_to_session(diver.errors)
       redirect to '/signup'
     end
 
     if (Diver.find_by(email: diver.email))
-      # message: diver already exists
+      add_validation_to_session({email: ["has already been created.  Please log in."]})
       redirect to '/signup'
     end
     

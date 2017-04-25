@@ -28,6 +28,14 @@ class ApplicationController < Sinatra::Base
       end
     end
         
+    def add_validation_to_session(errors)
+      flash[:message] = errors
+    end
+
+    def validation_messages
+      flash[:message].collect { |k,v| "#{k.to_s.capitalize} #{v}." }.join("\n")
+    end
+    
   end
 
 end

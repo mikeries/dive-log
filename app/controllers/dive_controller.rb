@@ -15,8 +15,7 @@ class DiveController < ApplicationController
     redirect to '/' if !logged_in?
     dive = current_user.dives.build(params[:dive])
     if dive.valid?
-      dive.location.id = params[:dive][:location]
-      current_user.save(validate: false)
+      dive.save
       redirect to '/dives'
     else
       add_validation_to_session(dive.errors.messages)
@@ -29,18 +28,14 @@ class DiveController < ApplicationController
 
   get '/dives/:id' do
     redirect to '/' if !logged_in?
-
-    @dive = current_user.dives.find_by(id: params[:id])
-
-    redirect to '/' unless @dive
+    redirect to '/' unless @dive = current_user.dives.find_by(id: params[:id])
 
     erb :'dives/show'
   end
   
   patch '/dives/:id' do
     redirect to '/' if !logged_in?
-    dive = current_user.dives.find_by(id: params[:id])
-    redirect to '/' unless dive
+    redirect to '/' unless dive = current_user.dives.find_by(id: params[:id])
 
     if dive.update(params[:dive])
       redirect to "/dives/#{dive.id}"

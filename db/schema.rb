@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424203754) do
+ActiveRecord::Schema.define(version: 20170425174610) do
 
   create_table "divers", force: :cascade do |t|
     t.string "name"
@@ -19,15 +19,15 @@ ActiveRecord::Schema.define(version: 20170424203754) do
   end
 
   create_table "dives", force: :cascade do |t|
-    t.integer  "diver_id"
-    t.integer  "location_id"
-    t.datetime "datetime"
-    t.integer  "duration"
-    t.integer  "ballast"
-    t.integer  "max_depth"
-    t.integer  "starting_pressure"
-    t.integer  "final_pressure"
-    t.string   "comments"
+    t.integer "diver_id"
+    t.integer "location_id"
+    t.string  "datetime"
+    t.integer "duration"
+    t.integer "ballast"
+    t.integer "max_depth"
+    t.integer "starting_pressure"
+    t.integer "final_pressure"
+    t.string  "comments"
   end
 
   create_table "locations", force: :cascade do |t|

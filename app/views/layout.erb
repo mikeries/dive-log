@@ -5,26 +5,23 @@
   </head>
 
   <body>
-  <div class='.navbar'>
-    Dive Logger
-      <a href='/'>Home</a>
-      <% if logged_in? %>
-        <p>Welcome  <%= current_user.name %></p>
-        <a href='/logout'>Logout</a>
-      <% else %>
-        <span>Please <a href='login'>Login</a> or <a href='/signup'>Sign Up</a></span>
-      <% end %>
-  </div>
-  <hr>
-
-
-  <% if errors %>
-    <div class='errors'>
-      <%= errors.join(" ") %>
-      <% clear_errors %>
+    <div class='.navbar'>
+      Dive Logger
+        <a href='/'>Home</a>
+        <% if logged_in? %>
+          <p>Welcome  <%= current_user.name %></p>
+          <a href='/logout'>Logout</a>
+        <% else %>
+          <span>Please <a href='login'>Login</a> or <a href='/signup'>Sign Up</a></span>
+        <% end %>
     </div>
-  <% end %>
+    <hr>
 
+    <% if flash.has?(:message) %>
+      <div class='errors'>
+        <%= flash[:message]%>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>

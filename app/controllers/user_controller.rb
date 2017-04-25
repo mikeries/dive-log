@@ -7,12 +7,11 @@ class UserController < ApplicationController
   post '/login' do
     diver = Diver.find_by(:email => params[:email])
 
-    session[:error_messages] = []
     if !diver
-      add_error "Unknown diver. Please enter your email and password again, or sign up."
+      flash[:message] = "Unknown diver. Please enter your email and password again, or sign up."
       redirect to '/login'
     elsif !diver.authenticate(params[:password])
-      add_error "Incorrect password. Please try again."
+      flash[:message] = "Incorrect password. Please try again."
       redirect to "/login"
     else
       session["diver_id"] = diver.id

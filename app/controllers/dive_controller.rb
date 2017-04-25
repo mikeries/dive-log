@@ -1,6 +1,9 @@
 class DiveController < ApplicationController
 
   get '/dives' do
+    redirect to '/' if !logged_in?
+    @diver = current_user
+    binding.pry
     erb :'dives/index'
   end
 

@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @user = Diver.find_by_id(session[:user_id])
-      if @user.is_a?(User)
+      if @user.is_a?(Diver)
           @user    
       end
     end

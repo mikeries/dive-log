@@ -1,0 +1,6 @@
+<h3>Your dives</h3>
+<hr>
+<% @diver.dives.each do |dive| %>
+  <p><%= "#{dive.location.name}"%></p>
+  <br>
+<% end %>

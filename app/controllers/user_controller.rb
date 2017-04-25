@@ -1,6 +1,7 @@
 class UserController < ApplicationController
 
   get '/login' do
+    redirect to '/dives' if logged_in?
     erb :'users/login'
   end
 
@@ -14,12 +15,13 @@ class UserController < ApplicationController
       add_validation_to_session ({password: "incorrect. Please try again"})
       redirect to "/login"
     else
-      session["diver_id"] = diver.id
-      redirect to "/divers"
+      session["user_id"] = diver.id
+      redirect to "/dives"
     end
   end
   
   get '/signup' do
+    redirect to '/dives' if logged_in?
     erb :'users/signup'
   end
 

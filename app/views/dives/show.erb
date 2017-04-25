@@ -1,43 +1,29 @@
-<h1>Your dive to <%= @dive.location.name %> on <%= @dive.location.datetime %> </h1>
+<h1>Your dive to <%= @dive.location.name %> on <%= @dive.datetime %> </h1>
 
-<form action="/dives/<%="#{dive.id}"%>" method="post" >
-  <div>
-    <label for='name'>Date*</label>
-    <input type='text' id='name' name=[dive[datetime]]>
-  </div>
-  <div>
-    <label for='location'>Location*</label>
-    <select>
-      <% Location.all.each do |location| %>
-        <option value='<%= location.id%>'><%= location.name%></option>
-      <% end %>
-    </select>
-  </div>
-  <div>
-    <label for='duration'>Duration* (minutes)</label>
-    <input type='text' id='duration' name=[dive[duration]]>
-  </div>
-  <div>
-    <label for='max_depth'>Maximum depth* (feet)</label>
-    <input type='text' id='max_depth' name=[dive[max_depth]]>
-  </div>
-  <div>
-    <label for='starting_pressure'>Starting pressure* (psi)</label>
-    <input type='text' id='starting_pressure' name=[dive[starting_pressure]]>
-  </div>
-  <div>
-    <label for='final_pressure'>Final pressure* (psi)</label>
-    <input type='text' id='final_pressure' name=[dive[final_pressure]]>
-  </div>
-  <div>
-    <label for='ballast'>Ballast (lbs)</label>
-    <input type='text' id='ballast' name=[dive[ballast]]>
-  </div>
-  <div>
-    <br><label for='comments'>How was it? </label><br>
-	  <textarea type="text" name="dive[comments]" id="comments" rows="20" 
-              cols="100"></textarea>
-  </div>
+<p>Date: <%= @dive.datetime %></p>
 
-	<input type='submit' name='submit' value='Add Dive' id='submit'/>
+<p>Location: <%= @dive.location.name %></p>
+
+<p>Duration: <%= @dive.duration %> minutes</p>
+
+<p>Maximum depth: <%= @dive.max_depth %> feet</p>
+
+<p>Starting pressure: <%= @dive.starting_pressure %> psi</p>
+
+<p>Final pressure: <%= @dive.final_pressure %> psi</p>
+
+<p>Ballast: <%= @dive.ballast%> lbs</p>
+
+<div>
+	<h2>Comments:</h2>
+	<p><%= @dive.comments %></p>
+</div>
+<br>
+<form action="/dives/<%= @dive.id %>/edit" method=get>
+  <input type="submit" value="Edit Dive"/>
+</form>
+<br>
+<form action="/dives/<%= @dive.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete"/>
+  <input type="submit" value="Delete Dive" />
 </form>	

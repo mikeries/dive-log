@@ -1,6 +1,9 @@
-<h3>Your dives</h3>
+<h1>Your dives</h1>
 <hr>
 <% @diver.dives.each do |dive| %>
   <p><%= "#{dive.location.name}"%> <%= "#{dive.datetime}"%></p>
-  <br>
 <% end %>
+
+<form action='/dives/new' method='post'>
+  <input type='submit' name='submit' value='New Dive'>
+</form>

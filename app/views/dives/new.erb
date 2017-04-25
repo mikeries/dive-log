@@ -1,0 +1,35 @@
+<h1>Add a dive</h1>
+
+<form action="/dives" method="post" >
+  <div>
+    <label for='name'>Date*</label>
+    <input type='text' id='name' name=[dive[datetime]]>
+  </div>
+  <div>
+    <label for='duration'>Duration* (minutes)</label>
+    <input type='text' id='duration' name=[dive[duration]]>
+  </div>
+  <div>
+    <label for='max_depth'>Maximum depth* (feet)</label>
+    <input type='text' id='max_depth' name=[dive[max_depth]]>
+  </div>
+  <div>
+    <label for='starting_pressure'>Starting pressure* (psi)</label>
+    <input type='text' id='starting_pressure' name=[dive[starting_pressure]]>
+  </div>
+  <div>
+    <label for='final_pressure'>Final pressure* (psi)</label>
+    <input type='text' id='final_pressure' name=[dive[final_pressure]]>
+  </div>
+  <div>
+    <label for='ballast'>Ballast (lbs)</label>
+    <input type='text' id='ballast' name=[dive[ballast]]>
+  </div>
+  <div>
+    <br><label for='comment'>How was it? </label><br>
+	  <textarea type="text" name="dive[comment]" id="comment" rows="20" 
+              cols="100"></textarea>
+  </div>
+
+	<input type='submit' name='submit' value='Add Dive' id='submit'/>
+</form>	

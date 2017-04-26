@@ -12,7 +12,8 @@ class LocationController < ApplicationController
 
   post '/locations' do
     redirect to '/' unless logged_in? 
-    redirect to '/' unless location = Location.all.build(params[:location])
+
+    location = Location.all.build(params[:location])
     if location.valid?
       location.save
       redirect to '/locations'

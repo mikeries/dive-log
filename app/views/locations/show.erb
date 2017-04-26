@@ -15,7 +15,7 @@
     <input type="submit" value="Edit Location"/>
   </form>
   <br>
-  <form action="/locations/<%= @location.id %>/delete" method="post">
+  <form action="/locations/<%= @location.slug %>/delete" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete"/>
     <input type="submit" value="Delete Location" />
   </form>

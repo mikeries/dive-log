@@ -17,14 +17,14 @@
 <% if !Dive.all.exists?(location_id: @location.id) %>
 
   <form action="/locations/<%= @location.slug %>/edit" method=get>
-    <input type="submit" value="Edit Location"/>
+    <button>Edit Location</button>
   </form>
 
   <br>
 
   <form action="/locations/<%= @location.slug %>/delete" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete"/>
-    <input type="submit" value="Delete Location" />
+    <button>Delete Location</button>
   </form>
 
 <% else %>

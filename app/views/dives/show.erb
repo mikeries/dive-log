@@ -24,10 +24,10 @@
 
 
 <form action="/dives/<%= @dive.id %>/edit" method=get>
-  <input type="submit" value="Edit Dive"/>
+    <button>Edit Dive</button>
 </form>
 <br>
 <form action="/dives/<%= @dive.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete"/>
-  <input type="submit" value="Delete Dive" />
+  <button>Delete</button>
 </form>	

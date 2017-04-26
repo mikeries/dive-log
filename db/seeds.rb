@@ -1,64 +1,201 @@
+guest = Diver.new({name: "Guest", password: "guest", 
+                  email: "guest", password_confirmation: "guest"})
 mike = Diver.new({name: "Mike", password: "mike", 
                   email: "mike@home.com", password_confirmation: "mike"})
 mom = Diver.new({name: "mom", password: "mom", 
                   email: "mom@home.com", password_confirmation: "mom"})
-dad = Diver.new({name: "dad", password: "dad", email: "dad@home.com",
-                  password_confirmation: "dad"})
 
-florida = Location.new({
-  name: "Florida",
-  city: "Key Largo",
-  country: "United States"
+santa_rosa_wall = Location.create({
+  name: "Santa Rosa Wall",
+  city: "Cozumel",
+  country: "Mexico",
+  category: "Wall",
+  description: <<-DESC
+Santa Rosa Wall is one of the most popular deep dive sites. The wall 
+begins at around 15 meters and extends deeper into the blue Caribbean 
+abyss. Santa Rosa Wall has so much to offer divers including, enormous 
+sponges, caves, swim-through tunnels, and overhangs of stony coral. 
+If you are looking for stunning marine life, sea turtles, eagle rays, 
+and large grouper have been seen there on a regular basis. This dive site 
+is more for intermediate level divers, as the currents can be strong.
+  DESC
 })
 
-hawaii = Location.new({
-  name: "Maui",
-  city: "Kehei",
-  country: "United States"
+columbia_wall = Location.create({
+  name: "Colombia Wall",
+  city: "Cozumel",
+  country: "Mexico",
+  category: "Wall",
+  description: <<-DESC
+Colombia wall is over 30 meters high and is home to a stunning cave, 
+tunnel and cavern systems. When diving at this site, you can expect 
+to see giant coral pillars, some of which tower over 20 meters tall. 
+Large barracuda are often seen here within the surrounding Caribbean waters, 
+as well as large sea turtles, eagle rays, and beautiful reef fish. Keep 
+your eyes open for the Blue Tang, also known as surgeon-fish, with their 
+scalpel-sharp tail appendages. If you are a budding photographer, the shallows 
+of this site are perfect for capturing stunning images. This site is definitely 
+not to be missed if you’re planning a trip to Cozumel.
+  DESC
 })
 
-belize = Location.new({
-  name: "Blue Hole",
-  city: "Ambergris Key",
-  country: "Belize"
+molokini = Location.create({
+  name: "Black Wall of Molokini",
+  city: "Maui, Hawaii",
+  country: "United States",
+  category: "Wall",
+  description: <<-DESC
+There is often only a slight current here, though it is mainly for 
+intermediate to advanced divers because its unique ledges and walls drop 
+down to over 200 feet. The wall and ledge formation also makes this spot a 
+drift dive. The incredible depths mean that there is typically more than 100 
+feet of visibility! This is the perfect spot to see wildlife, including sharks, 
+whales, dolphins, manta rays, and many other rare fish.
+  DESC
 })
 
-mike.dives.build({
-  comments: "Dive 1", 
-  location: florida, 
+cathedrals = Location.create({
+  name: "The Cathedrals",
+  city: "Lanai, Hawaii",
+  country: "United States",
+  category: "Reef",
+  description: <<-DESC
+Diving depth is sixty to seventy feet, and visibility is typically 100 feet 
+or more. Beginner through advanced divers can enjoy this spot! It is the most 
+popular dive site off the island of Lanai. The dual pinnacles of Cathedrals 
+sets up great wall diving, as well as dramatic arches and caves. The caverns 
+have ceiling heights up to twenty feet, laced with lava rock, which lets in 
+pockets of light, much like a stained glass window.
+  DESC
+})
+
+challenger_bay = Location.create({
+  name: "Challenger Bay, Ribbon Reefs",
+  city: "Great Barrier Reef",
+  country: "Australia",
+  category: "Reef",
+  description: <<-DESC
+Plentiful trevally and surgeonfish and other schooling species congregate 
+over these shallow, hard-coral gardens in the Ribbon Reefs, which also offer 
+stellar night diving with plentiful nocturnal activity.
+  DESC
+})
+
+tortuga_island = Location.create({
+  name: "Tortuga Island",
+  city: "Isabela Island",
+  country: "Galapogos, Ecuador",
+  category: "Drift/Wall",
+  description: <<-DESC
+This Galapagos dive site, located off of Isabela Island, is great for 
+intermediate level divers who aren’t afraid of following a deep drift wall 
+down to the depths of 40 meters, or 131 feet. Here, you will find a variety of 
+native species, including Galapagos sharks, Galapagos sheep head, and Galapagos 
+Groupers, as well as many Mantas, Stingrays, Sunfish, and more. You may even 
+get the chance to see Hammerhead sharks and White-tipped reef sharks. But if 
+you’re truly lucky, you may be diving at the right place at the right time to 
+see a passing Orca.
+  DESC
+})
+
+blue_hole = Location.create({
+  name: "Blue Hole, Lighthouse Reef",
+  city: "Ambergris Cay",
+  country: "Belize",
+  category: "Wall",
+  description: <<-DESC
+Once an above ground cave that has collapsed this spectacular deep blue circle 
+is 1,000 feet in diameter and over 400 feet deep. The Blue Hole is located at 
+Lighthouse Reef, which is one of Belize’s three coral atolls. Visibility when 
+first entering the water is not that great and the water has a gray color to 
+it but once you have descended past the thermocline at 50 or 60 ft the water 
+clarity will improve dramatically. This dive is not about the fish and coral 
+formations you are used to seeing it is the stalactites you are going to see. 
+Once you reach the 100 ft mark you will entire the first under cut where you 
+begin swimming between these formations. Even though the water is clear light 
+is limited so for the best experience bring a dive light, this will help you 
+spot the invertebrates and sponges that live here.
+  DESC
+})
+
+aquarium = Location.create({
+  name: "The Aquarium, Lighthouse Reef",
+  city: "Long Caye",
+  country: "Belize",
+  category: "Reef",
+  description: <<-DESC
+This site gets its name from the great variety of small reef fish that call 
+this reef top and wall edge home. You can find both a well-developed spur and 
+groove reef formation that leads to a wall. The fish here make very cooperative 
+subjects for any photographer. At about 60 ft you will start to find the azure 
+vase sponges and large barrel sponges starting to appear. Be sure to check for 
+juvenile reef fish and the banded coral shrimp that like to take shelter here. 
+On the top of the wall look between the large gorgonians for trumpet fish and 
+black groupers while turtles and French angelfish can be found on the reef crest. As you swim along the wall be sure to keep a look out in the blue water for sharks, manta rays and other large fish.
+  DESC
+})
+
+guest.dives.build({
+  comments: "My first time in Belize.  Loved it!", 
+  location: aquarium, 
   datetime: "2/10/2013",
   ballast: 8,
-  duration: 57,
+  duration: 66,
   max_depth: 40,
   starting_pressure: 3000,
   final_pressure: 743
 })
-mom.dives.build({
-  comments: "Mom's dive", 
-  location: hawaii, 
-  datetime: "8/10/2015",
-  ballast: 10,
-  duration: 72,
-  max_depth: 43,
-  starting_pressure: 2983,
+
+guest.dives.build({
+  comments: "I was nervious about the depth, so I took it easy.", 
+  location: blue_hole, 
+  datetime: "2/12/2013",
+  ballast: 8,
+  duration: 57,
+  max_depth: 100,
+  starting_pressure: 3130,
   final_pressure: 621
 })
-dad.dives.build({
-  comments: "Dad's dive", 
-  location: belize, 
-  datetime: "6/20/2014",
-  ballast: 15,
-  duration: 45,
-  max_depth: 58,
-  starting_pressure: 3103,
-  final_pressure: 632
-})
-mike.dives.build({
-  comments: "Dive 2", 
-  location: belize, 
-  datetime: "6/20/2014",
+
+guest.dives.build({
+  comments: "Had some problems with my ears.  Perfect visibility.  Saw several turtles and a shark.",
+  location: molokini, 
+  datetime: "6/6/2014",
   ballast: 8,
-  duration: 45,
+  duration: 54,
+  max_depth: 59,
+  starting_pressure: 3130,
+  final_pressure: 743
+})
+
+mike.dives.build({
+  comments: "Water was a little colder than expected.  Windy and rough.", 
+  location: challenger_bay, 
+  datetime: "7/10/2015",
+  ballast: 8,
+  duration: 67,
+  max_depth: 40,
+  starting_pressure: 3201,
+  final_pressure: 653
+})
+
+mom.dives.build({
+  comments: "Saw many beautiful fish.  Dive buddy was very nice.", 
+  location: cathedrals, 
+  datetime: "5/13/2014",
+  ballast: 10,
+  duration: 55,
+  max_depth: 34,
+  starting_pressure: 3021,
+  final_pressure: 543
+})
+
+mike.dives.build({
+  comments: "Lots of current, limited visibility.  Not much reef, but lots off larger animals.", 
+  location: santa_rosa_wall, 
+  datetime: "9/2/2016",
+  ballast: 8,
+  duration: 52,
   max_depth: 64,
   starting_pressure: 2983,
   final_pressure: 654
@@ -66,4 +203,4 @@ mike.dives.build({
 
 mike.save
 mom.save
-dad.save
+guest.save

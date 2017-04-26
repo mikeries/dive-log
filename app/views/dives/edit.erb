@@ -7,9 +7,9 @@
   </p>
   <p>
     <label for='location'>Location*</label>
-    <select>
+    <select name=dive[location_id]>
       <% Location.all.each do |location| %>
-        <option value='<%= location.id%>' <%= 'selected' if location.id=@dive.location.id %>><%= location.name%></option>
+        <option value='<%= location.id%>' <%= 'selected' if location.id==@dive.location.id %>><%= location.name%></option>
       <% end %>
     </select>
   </p>

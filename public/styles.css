@@ -3,6 +3,7 @@ body {
   margin: 0 auto;
 }
 
+/******** Navbar *************/
 #navbar ul
 {
 padding-left: 0;
@@ -34,4 +35,9 @@ border-right: 1px solid #fff;
 {
 background-color: #369;
 color: #fff;
+}
+
+/************* Validation Errors **************/
+#errors {
+  color: red;
 }

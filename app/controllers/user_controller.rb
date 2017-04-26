@@ -38,7 +38,8 @@ class UserController < ApplicationController
     end
     
     diver.save
-    redirect to '/'
+    session["user_id"] = diver.id
+    redirect to "/dives"
 
   end
 

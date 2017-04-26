@@ -1,10 +1,9 @@
 <h1>All Current Locations</h1>
 <hr>
 <% Location.all.each do |location| %>
-  <p><a href='/locations/<%= "#{location.slug}" %>'>
-    <h3><%= "#{location.name}" %></h3>
-    <p><%= "#{location.city}, #{location.country}"%></p>
-  </a></p>
+  <a href='/locations/<%= "#{location.slug}" %>'>
+    <p><%= "#{location.name}" %>: <%= "#{location.city}, #{location.country}"%></p>
+  </a>
 <% end %>
 
 <form action='/locations/new' method='get'>

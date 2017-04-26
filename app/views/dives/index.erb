@@ -2,7 +2,7 @@
 <hr>
 <% @diver.dives.each do |dive| %>
   <p><a href='/dives/<%= "#{dive.id}" %>'>
-    <%= "#{dive.location.name}"%> <%= "#{dive.datetime}"%>
+    <%= "#{dive.location.name}"%> on <%= "#{dive.datetime}"%>
   </a></p>
 <% end %>
 

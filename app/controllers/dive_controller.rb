@@ -1,18 +1,18 @@
 class DiveController < ApplicationController
 
   get '/dives' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     @diver = current_user
     erb :'dives/index'
   end
 
   get '/dives/new' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     erb :'dives/new'    
   end
 
   post '/dives' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     dive = current_user.dives.build(params[:dive])
     if dive.valid?
       dive.save
@@ -27,14 +27,14 @@ class DiveController < ApplicationController
   end
 
   get '/dives/:id' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     redirect to '/' unless @dive = current_user.dives.find_by(id: params[:id])
 
     erb :'dives/show'
   end
   
   patch '/dives/:id' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     redirect to '/' unless dive = current_user.dives.find_by(id: params[:id])
 
     if dive.update(params[:dive])
@@ -46,13 +46,13 @@ class DiveController < ApplicationController
   end
 
   get '/dives/:id/edit' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     redirect to '/' unless @dive = current_user.dives.find_by(id: params[:id])
     erb :'dives/edit'
   end
 
   delete '/dives/:id/delete' do
-    redirect to '/' if !logged_in?
+    redirect to '/' unless logged_in?
     redirect to '/' unless dive = current_user.dives.find_by(id: params[:id])
     dive.delete
     redirect to '/dives'

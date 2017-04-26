@@ -1,24 +1,42 @@
 <h1><%= @location.name %> </h1>
+<p><%= @location.city %>, <%= @location.country %> </p>
 
-<p>City: <%= @location.city %> </p>
-<p>Country: <%= @location.country %> </p>
-<p>Category: <%= @location.category %></p>
+<% if !@location.category.nil? %>
+  <p>Category: <%= @location.category %></p>
+<% end %>
 
-<div>
-	<h2>Description:</h2>
-	<p><%= @location.description %></p>
-</div>
-<br>
+<% if !@location.description.nil?  %>
+  <div>
+    <h2>Description:</h2>
+    <p><%= @location.description %></p>
+  </div>
+
+  <br>
+<% end %>
 
 <% if !Dive.all.exists?(location_id: @location.id) %>
+
   <form action="/locations/<%= @location.slug %>/edit" method=get>
     <input type="submit" value="Edit Location"/>
   </form>
+
   <br>
+
   <form action="/locations/<%= @location.slug %>/delete" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete"/>
     <input type="submit" value="Delete Location" />
   </form>
+
 <% else %>
+  <!-- 
+    IDEA:  List the current_user.dives that reference this location so that the user can edit them first.
+    However, keep in mind that other users may also reference this location and we aren't sharing those.
+
+    Another idea would be to allow certain things to be changed (Name, description) without fundamentally
+    changing the location.
+
+    IDEA: How about show a list of other dives that have been there?
+    IDEA: Maybe add diver comments?
+  -->
   <p>This location cannot be modified because it is referenced by an existing dive.</p>
 <% end %>

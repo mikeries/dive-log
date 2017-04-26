@@ -18,12 +18,14 @@
   with that location.
 </p>
 
-<p>
-  A guest account has been created for you so that you can look around.
-</p>
+<% if !logged_in? %>
+  <p>
+    A guest account has been created for you so that you can look around.
+  </p>
 
-<form action="/login" method="post">
-  <input type="hidden" name="email" id="email" value='guest'>
-  <input type="hidden" name="password" id="password", value='guest'>
-  <input type='submit' name='submit' id='submit' value='Log In As Guest'>
-</form>
+  <form action="/login" method="post">
+    <input type="hidden" name="email" id="email" value='guest'>
+    <input type="hidden" name="password" id="password", value='guest'>
+    <input type='submit' name='submit' id='submit' value='Log In As Guest'>
+  </form>
+<% end %>

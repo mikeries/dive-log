@@ -1,0 +1,31 @@
+<h1>Add a location</h1>
+
+<form action="/locations" method="post" >
+  <div>
+    <label for='name'>Name*: </label>
+    <input type='text' id='name' name=[location[name]]>
+  </div>
+
+  <div>
+    <label for='city'>City*: </label>
+    <input type='text' id='city' name=[location[city]]>
+  </div>
+    <div>
+    <label for='country'>Country*: </label>
+    <input type='text' id='country' name=[location[country]]>
+  </div>
+
+  <div>
+    <label for='category'>Category: </label>
+    <input type='text' id='category' name=[location[category]]>
+  </div>
+  
+
+  <div>
+    <br><label for='description'>Description</label><br>
+	  <textarea type="text" name="location[description]" id="description" rows="20" 
+              cols="100"></textarea>
+  </div>
+
+	<input type='submit' name='submit' value='Add Location' id='submit'/>
+</form>	

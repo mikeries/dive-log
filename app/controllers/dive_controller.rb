@@ -2,7 +2,7 @@ class DiveController < ApplicationController
 
   get '/dives' do
     redirect to '/' unless logged_in?
-    @diver = current_user
+
     erb :'dives/index'
   end
 

@@ -1,6 +1,6 @@
 <h1>Your dives</h1>
 <hr>
-<% @diver.dives.each do |dive| %>
+<% current_user.dives.each do |dive| %>
   <p><a href='/dives/<%= "#{dive.id}" %>'>
     <%= "#{dive.location.name}"%> on <%= "#{dive.datetime}"%>
   </a></p>

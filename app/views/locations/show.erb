@@ -1,11 +1,11 @@
 <h1><%= @location.name %> </h1>
 <p><%= @location.city %>, <%= @location.country %> </p>
 
-<% if !@location.category.nil? %>
+<% if !(@location.category.nil? || @location.category.empty?) %>
   <p>Category: <%= @location.category %></p>
 <% end %>
 
-<% if !@location.description.nil?  %>
+<% if !(@location.description.nil? || @location.description.empty?) %>
   <div>
     <h2>Description:</h2>
     <p><%= @location.description %></p>

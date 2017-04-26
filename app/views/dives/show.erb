@@ -14,7 +14,7 @@
 
 <p>Ballast: <%= @dive.ballast%> lbs</p>
 
-<% if !@dive.comments.nil? %>
+<% if !(@dive.comments.nil? || @dive.comments.empty?) %>
   <div>
     <h2>Comments:</h2>
     <p><%= @dive.comments %></p>

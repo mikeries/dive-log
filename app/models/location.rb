@@ -4,4 +4,5 @@ class Location < ActiveRecord::Base
   has_many :dives
   has_many :locations, through: :dives
   validates_presence_of :name, :city, :country
+  validates_uniqueness_of :name
 end

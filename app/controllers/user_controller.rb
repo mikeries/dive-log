@@ -9,7 +9,7 @@ class UserController < ApplicationController
     diver = Diver.find_by(:email => params[:email])
 
     if !diver
-      add_messages_to_session (["Diver unknown. Please enter your email and password again, or sign up"])
+      add_messages_to_session (["Diver unknown. Please enter your email and password again, or <a href='/signup'>sign up.</a>"])
       redirect to '/login'
     elsif !diver.authenticate(params[:password])
       add_messages_to_session (["Password incorrect. Please try again"])

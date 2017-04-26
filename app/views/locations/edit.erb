@@ -1,35 +1,35 @@
 <h1>Edit <%= @location.name %></h1>
 
 <form action="/locations" method="post" >
-  <div>
+  <p>
     <label for='name'>Name*: </label>
     <input type='text' id='name' name=[location[name]] 
             value=<%= @location.name %>>
-  </div>
+  </p>
 
-  <div>
+  <p>
     <label for='city'>City*: </label>
     <input type='text' id='city' name=[location[city]]
             value='<%= "#{@location.city}" %>'>
-  </div>
-    <div>
+  </p>
+    <p>
     <label for='country'>Country*: </label>
     <input type='text' id='country' name=[location[country]]
             value='<%= "#{@location.country}" %>'>
-  </div>
+  </p>
 
-  <div>
+  <p>
     <label for='category'>Category: </label>
     <input type='text' id='category' name=[location[category]]
             value='<%= "#{@location.category}" %>'>
-  </div>
+  </p>
   
 
-  <div>
+  <p>
     <br><label for='description'>Description</label><br>
 	  <textarea type="text" name="location[description]" id="description" rows="20" 
               cols="100"><%= @location.description %> </textarea>
-  </div>
+  </p>
 
 	<input type='submit' name='submit' value='Update Location' id='submit'/>
 </form>	

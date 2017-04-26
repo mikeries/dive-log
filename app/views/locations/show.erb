@@ -11,7 +11,7 @@
 <br>
 
 <% if !Dive.all.exists?(location_id: @location.id) %>
-  <form action="/locations/<%= @location.id %>/edit" method=get>
+  <form action="/locations/<%= @location.slug %>/edit" method=get>
     <input type="submit" value="Edit Location"/>
   </form>
   <br>

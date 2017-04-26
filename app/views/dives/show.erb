@@ -14,11 +14,15 @@
 
 <p>Ballast: <%= @dive.ballast%> lbs</p>
 
-<div>
-	<h2>Comments:</h2>
-	<p><%= @dive.comments %></p>
-</div>
-<br>
+<% if !@dive.comments.nil? %>
+  <div>
+    <h2>Comments:</h2>
+    <p><%= @dive.comments %></p>
+  </div>
+  <br>
+<% end %>
+
+
 <form action="/dives/<%= @dive.id %>/edit" method=get>
   <input type="submit" value="Edit Dive"/>
 </form>

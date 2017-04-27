@@ -32,7 +32,7 @@ class LocationController < ApplicationController
   
   patch '/locations/:slug' do
     redirect to '/' unless logged_in?
-    redirect to '/' unless location = Location.all.find_by(params[:slug])
+    redirect to '/' unless location = Location.all.find_by_slug(params[:slug])
 
     if location.update(params[:location])
       redirect to "/locations/#{location.slug}"

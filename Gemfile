@@ -11,6 +11,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem 'rack-flash3'
+gem 'puma'
 
 group :development do
    gem 'sqlite3'
@@ -20,3 +21,6 @@ group :production do
    gem 'pg'
    gem 'activerecord-postgresql-adapter'
 end
+
+
+ruby '2.3.1'

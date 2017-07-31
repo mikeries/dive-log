@@ -1,5 +1,7 @@
 # Dive Logger
 
+A demo of this application can be found here: [Sinatra Dive Log.](https://sinatra-dive-log.herokuapp.com/)  Note that because the hosting service (Heroku) sleeps idle applications, this link may take several seconds to load.
+
 If you're a SCUBA diver, you know that there's a lot of information to keep track of.  This app provides you the ability to store those data on the web, where you can access it from anywhere.  Even if you forget your diving logbook.  I'm sure that's never happened to you.
 
 For safety reasons, each diver is identified by their email address and a password.  Once logged in, a Diver can add new locations, and keep track of their dives, including the key parameters of location, max_depth, duration, initial tank pressure, final tank pressures, ballast, etc.  Many other parameters are possible, as well.

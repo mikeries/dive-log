@@ -8,7 +8,7 @@ test:
 
 production:
   adapter: postgresql
-  database: sinatra_dive_log_db
-  username: sinatra_dive_log
-  password: peanut
+  database: sch_database
+  username: username
+  password: password
   host: localhost
